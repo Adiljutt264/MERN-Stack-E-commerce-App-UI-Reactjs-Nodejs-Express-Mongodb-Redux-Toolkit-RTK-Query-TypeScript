@@ -8,15 +8,16 @@ type ProductsProps = {
     handler: () => void;
 }
 
-const server = "dummyserver"
 
 const productCard = ({ productId, name, photo, stock, price, handler}: ProductsProps) => {
   return (
     <div className="product-card">
-        <img src={`${server}/${photo}`} alt={name}/>
+        <img src={photo} alt={name}/>
         <p>{name}</p>
         <span>{price}</span>
+        <div>
         <button onClick={handler}><FaPlus/></button>
+        </div> 
     </div>
   )
 }

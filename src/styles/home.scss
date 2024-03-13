@@ -1,3 +1,4 @@
+@import url("../styles/app.scss");
 .home {
     padding: 2rem 5%;
     display: flex;
@@ -6,9 +7,11 @@
     width: 100%;
     > section {
         width: 100%;
-        height: 18.75rem;
+        padding: 25vh 0;
         margin: auto;
-        background-image: url("../assets/cover.jpg") no-repeat center / cover;
+        background-image: url("../assets/images/cover.jpg");
+        background-repeat: no-repeat;
+        background-position: top center;
         
         > h1 {
             @include heading(1px);
@@ -26,6 +29,51 @@
             overflow-x: auto;
             &::-webkit-scrollbar{
                 display: none;
+            }
+        }
+    }
+    .product-card {
+        width: 18.75rem;
+        height: 25rem;
+        padding: 1rem;
+        flex: none;
+        position: relative;
+        background-color: $color-white;
+        @include flex(column, flex-start,center, 4px);
+        &:hover > div {
+            opacity: 1;
+        }
+        img {
+            @include square(calc(18.75rem - 3rem));
+            object-fit: cover;
+            margin: 1rem;
+        }
+        span{
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        > div {
+            opacity: 0;
+            position: absolute;
+            @include square(100%);
+            top: 0;
+            left: 0;
+            background-color: #00000027;
+            @include flex;
+            button {
+                @include flex;
+                @include square(3rem);
+                border-radius: 100%;
+                border: none;
+                background-color: $color-navy;
+                cursor: pointer;
+                font-size: 1.1rem;
+                transition: all 0.4s;
+                &:hover{
+                    rotate: 20deg;
+
+                }
+                
             }
         }
     }
